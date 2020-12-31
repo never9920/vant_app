@@ -1,16 +1,22 @@
 <template>
-  <div>profile</div>
+  <div>
+    <vnavbar :navdata="navdata"></vnavbar>
+  </div>
 </template>
 
 <script>
+import vnavbar from '../../components/vant/vnavbar'
 export default {
 name:"profile",
   data () {
     return {
+      navdata:{
+            title:"我的",leftarrow:false
+        }
     };
   },
 
-  components: {},
+  components: {vnavbar},
 
   computed: {},
 
