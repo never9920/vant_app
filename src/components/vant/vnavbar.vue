@@ -8,8 +8,11 @@
       :left-arrow="navdata.leftarrow"
       @click-left="onClickLeft"
       @click-right="onClickRight"
+      :fixed="navdata.fixed"
+      :placeholder="navdata.fixed"
       class="nav"
       >
+      <slot slot="title" name="title"></slot>
       <template #right v-if="navdata.icon">
         <van-icon name="search" size="18" />
       </template>

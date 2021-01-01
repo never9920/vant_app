@@ -15,7 +15,10 @@ import {
     Image,
     Tab,
     Tabs,
-    List
+    List,
+    GoodsAction,
+    GoodsActionIcon,
+    GoodsActionButton
 } from 'vant'
 
 Vue.use(Button);
@@ -34,3 +37,6 @@ Vue.use(Image);
 Vue.use(Tab);
 Vue.use(Tabs);
 Vue.use(List);
+Vue.use(GoodsAction);
+Vue.use(GoodsActionButton);
+Vue.use(GoodsActionIcon);
