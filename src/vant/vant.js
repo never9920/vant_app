@@ -18,7 +18,9 @@ import {
     List,
     GoodsAction,
     GoodsActionIcon,
-    GoodsActionButton
+    GoodsActionButton,
+    Sku,
+    Toast
 } from 'vant'
 
 Vue.use(Button);
@@ -40,3 +42,7 @@ Vue.use(List);
 Vue.use(GoodsAction);
 Vue.use(GoodsActionButton);
 Vue.use(GoodsActionIcon);
+Vue.use(Sku);
+
+
+Vue.prototype.$toast = Toast

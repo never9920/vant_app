@@ -9,7 +9,7 @@
     <detailcomment :commentinfo="commentinfo" ref="comment"></detailcomment>
     <div class="word">热门推荐</div>
     <vgrid :recommend="recommendlist" :num="num"></vgrid>
-    <vgoods></vgoods>
+    <vgoods :paraminfo="paraminfo" :iid="iid" :topimg="topimg" :goodsinfo="goods"></vgoods>
   </div>
 </template>
 
@@ -80,6 +80,7 @@ name:"detail",
       this.detailinfo = data.detailInfo
       //console.log(this.detailinfo.detailImage)
       this.paraminfo = new Goodsparam(data.itemParams.info,data.itemParams.rule)
+      //console.log(this.paraminfo)
       //判断是否有评论
       if(data.rate.list){
         this.commentinfo = data.rate.list[0]
