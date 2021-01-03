@@ -25,3 +25,7 @@ body,
     color: pink;
     margin-right: 20px;
 }
+
+.submit {
+    bottom: 40px
+}

@@ -1,6 +1,7 @@
 import {
     ADD_COUNTER,
-    ADD_CART
+    ADD_CART,
+    DEL_CART
 } from './mutation-types'
 
 export default {
@@ -36,12 +37,15 @@ export default {
                 context.commit(ADD_COUNTER, product)
                 resolve('当前商品数量+1')
             } else {
-                payload.count = 1
+                payload.count = payload.num
                     //context.state.cartlist.push(payload)
                 context.commit(ADD_CART, payload)
                 resolve('添加新商品到购物车')
             }
         })
 
+    },
+    delcart(context, payload) {
+        context.commit(DEL_CART, payload)
     }
 }

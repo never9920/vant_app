@@ -1,28 +1,47 @@
 <template>
   <div>
-    <vnavbar :navdata="navdata"></vnavbar>
+    <vnavbar :navdata="navdata">
+      <template v-slot:title>
+        购物车({{cartlength}})
+      </template>
+    </vnavbar>
+    <cartlist class="list"></cartlist>
+    <vsubmit></vsubmit>
   </div>
 </template>
 
 <script>
-import vnavbar from '../../components/vant/vnavbar'
+import vnavbar from 'components/vant/vnavbar'
+import cartlist from './chidcomps/cartlist'
+import vsubmit from '../../components/vant/vsubmit'
+import {mapGetters} from 'vuex'
 export default {
 name:"cart",
   data () {
     return {
       navdata:{
-            title:"购物车",leftarrow:false
+            leftarrow:false
         }
     };
   },
 
-  components: {vnavbar},
+  components: {
+    vnavbar,
+    cartlist,
+    vsubmit
+  },
 
-  computed: {},
+  computed: {
+    ...mapGetters(['cartlength']),
+    },
 
   methods: {}
 }
 
 </script>
 <style scoped>
+.list{
+  width:100%
+}
+
 </style>

@@ -2,7 +2,7 @@
   <div>
       <vnavbar :navdata="navdata" @onClickLeft="goback">
       <template v-slot:title>
-       <div slot="center" class="title">
+       <div class="title">
               <div  v-for="(item,index) in titles" 
               :key="index"
               class="ditem"

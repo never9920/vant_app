@@ -20,7 +20,12 @@ import {
     GoodsActionIcon,
     GoodsActionButton,
     Sku,
-    Toast
+    Toast,
+    Card,
+    SwipeCell,
+    Dialog,
+    SubmitBar,
+    checkbox
 } from 'vant'
 
 Vue.use(Button);
@@ -43,6 +48,11 @@ Vue.use(GoodsAction);
 Vue.use(GoodsActionButton);
 Vue.use(GoodsActionIcon);
 Vue.use(Sku);
+Vue.use(Card);
+Vue.use(SwipeCell);
+Vue.use(SubmitBar);
+Vue.use(checkbox);
 
 
 Vue.prototype.$toast = Toast
+Vue.prototype.$dialog = Dialog
