@@ -4,12 +4,12 @@
       <vswipe :banner="banner"></vswipe>
       <vgrid :recommend="recommend"></vgrid>
       <feature></feature>
-      <vtab :tabdata="tabdata" @typechange="typechange" ref="tabbar">
+      <vtab :tabdata="tabdata" @typechange="typechange">
           <vlist @load="addmore">
           <vgrid :recommend="goodslist" :num="num"></vgrid>
           </vlist>
       </vtab>
-      <backtop @click.native="totop" v-if="backcom"></backtop>
+      <backtop @click.native="totop"></backtop>
       <vpopup :show="show" @close="close"></vpopup>
   </div>
 </template>
@@ -33,7 +33,7 @@ name:"home",
         navdata:{
             title:"购物街",leftarrow:false,icon:true,fixed:true
         },
-        show:false,
+        show:true,
         banner:[],
         recommend:[],
         tabdata:[
@@ -71,12 +71,6 @@ name:"home",
       goodslist(){
           return this.goods[this.currenttype].list
       },
-      backcom(){
-        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-        if(scrollTop>1500){
-            return true
-        } else return true 
-      }
   },
 
   methods: {

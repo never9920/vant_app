@@ -10,6 +10,7 @@
     <div class="word">热门推荐</div>
     <vgrid :recommend="recommendlist" :num="num"></vgrid>
     <vgoods :paraminfo="paraminfo" :iid="iid" :topimg="topimg" :goodsinfo="goods"></vgoods>
+    <backtop @click.native="totop"></backtop>
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import detailshop from "./childcomps/detailshop"
 import detailgoods from "./childcomps/detailgoods"
 import detailparam from "./childcomps/detailparam"
 import detailcomment from "./childcomps/detailcomment"
+import backtop from 'components/backtop/backtop'
 
 import vswipe from 'components/vant/vswipe'
 import vgrid from 'components/vant/vgrid'
@@ -51,7 +53,8 @@ name:"detail",
     detailparam,
     detailcomment,
     vgrid,
-    vgoods
+    vgoods,
+    backtop
   },
 
   computed: {},
@@ -93,7 +96,12 @@ name:"detail",
     },
     imageload(){
 
-    }
+    },
+    totop(){
+      //console.log(scrollTop)
+      scrollTo({top:0,behavior:'smooth'})
+      //console.log('kkk')
+    },
   }
 }
 

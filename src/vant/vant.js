@@ -25,7 +25,9 @@ import {
     SwipeCell,
     Dialog,
     SubmitBar,
-    checkbox
+    checkbox,
+    Sidebar,
+    SidebarItem
 } from 'vant'
 
 Vue.use(Button);
@@ -52,6 +54,8 @@ Vue.use(Card);
 Vue.use(SwipeCell);
 Vue.use(SubmitBar);
 Vue.use(checkbox);
+Vue.use(Sidebar);
+Vue.use(SidebarItem);
 
 
 Vue.prototype.$toast = Toast

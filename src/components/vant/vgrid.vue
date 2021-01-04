@@ -2,7 +2,7 @@
   <div>
   <van-grid :column-num="num" :gutter="5" :border=false>
   <van-grid-item v-for="(item,i) in recommend" :key="i" @click="change(item)">
-       <van-image :src="item.image||item.show.img" class="every" radius="5px"/>
+       <van-image :src="item.img || item.image || item.show.img" class="every" radius="5px"/>
        <div class="info">
        <p>{{item.title}}</p>
        <span class="price" v-if="item.price">¥{{item.price}}</span>
@@ -24,7 +24,7 @@ name:"vgrid",
   props:{
       recommend:{
           type:Array,
-          default:[]
+          default:()=>[]
       },
       num:{
         type:Number,
@@ -34,7 +34,11 @@ name:"vgrid",
 
   components: {},
 
-  computed: {},
+  computed: {
+    getimg(item){
+      return item.img || item.image || item.show.img
+    }
+  },
 
   methods: {
     change(item){

@@ -1,6 +1,6 @@
 <template>
   <div>
-      <van-tabs v-model="activeName" sticky :lazy-render=false offset-top="46px">
+      <van-tabs v-model="activeName" :sticky="sticky" :lazy-render=false offset-top="46px">
         <van-tab :title="item.title" :name="item.name" v-for="(item,i) in tabdata" :key="i">
             <slot>{{item.title}}</slot>
         </van-tab>
@@ -20,11 +20,22 @@ name:"vtab",
       tabdata:{
           type:Array,
           default:[]
+      },
+      sticky:{
+        type:Boolean,
+        type:true
+      },
+      currenttype:{
+        type:String,
+        default:'pop'
       }
   },
   watch:{
     activeName(val){
       return this.$emit('typechange',val)
+    },
+    currenttype(){
+      this.activeName=this.currenttype
     }
   },
 
