@@ -19,18 +19,20 @@
                   <span>{{commentinfo.style}}</span>
               </div>
               <div class="iimgs">
-                  <img v-lazy="item" v-for="(item,index) in commentinfo.images" :key="index">
+                  <img v-lazy="item" v-for="(item,index) in commentinfo.images" :key="index" @click="showimg(item)">
               </div>
           </div>
           <div class="ex">
               <p>{{commentinfo.explain}} </p>
           </div>
       </div>
+      <vpopimg :isshow="isshow" :imgs="imgs" @close = "closepop"></vpopimg>
   </div>
 </template>
 
 <script>
 import {formatDate} from "common/utils.js"
+import vpopimg from 'components/vant/vpopimg.vue';
 export default {
 name:"detailcomment",
 props:{
@@ -46,10 +48,12 @@ filters:{
 },
   data () {
     return {
+        isshow:false,
+        imgs:''
     };
   },
 
-  components: {},
+  components: {vpopimg},
 
   computed: {},
 
@@ -57,6 +61,13 @@ filters:{
       /*imgload(){
           this.$emit("imageload")
       }*/
+      showimg(item){
+          this.imgs = item,
+          this.isshow = true
+      },
+      closepop(){
+          this.isshow = false
+      }
   }
 }
 

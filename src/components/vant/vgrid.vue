@@ -34,11 +34,7 @@ name:"vgrid",
 
   components: {},
 
-  computed: {
-    getimg(item){
-      return item.img || item.image || item.show.img
-    }
-  },
+  computed: {},
 
   methods: {
     change(item){
@@ -48,8 +44,10 @@ name:"vgrid",
         this.$router.go(0);
       }else if(item.iid){
         this.$router.push('/detail/'+item.iid)
-      }else{
+      }else if(item.link){
         window.location.href = item.link
+      }else{
+        this.$router.push('/login')
       }
     },
   }

@@ -44,6 +44,8 @@ name:"vsubmit",
     calc(){
       if(!this.$store.getters.cartlist.some(item=>item.checked)){
         this.$toast('请选择购买的商品')
+      }else{
+        this.$router.push('/login')
       }
     }
   }

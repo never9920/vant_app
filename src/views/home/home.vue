@@ -9,7 +9,7 @@
           <vgrid :recommend="goodslist" :num="num"></vgrid>
           </vlist>
       </vtab>
-      <backtop @click.native="totop"></backtop>
+      <backtop @click.native="totop" v-if="isshow"></backtop>
       <vpopup :show="show" @close="close"></vpopup>
   </div>
 </template>
@@ -46,7 +46,8 @@ name:"home",
          'new':{page:0,list:[]},
          'sell':{page:0,list:[]},
        },
-       num:2
+       num:2,
+       isshow:false
     };
   },
   created(){
@@ -71,6 +72,10 @@ name:"home",
       goodslist(){
           return this.goods[this.currenttype].list
       },
+  },
+
+  mounted(){
+      window.addEventListener('scroll',this.backshow)
   },
 
   methods: {
@@ -102,9 +107,16 @@ name:"home",
           this.gethomegoods(this.currenttype)
       },
       totop(){
-          //console.log(scrollTop)
           scrollTo({top:0,behavior:'smooth'})
       },
+      backshow(){
+          var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+          if(scrollTop >1500){
+              this.isshow = true
+          }else{
+              this.isshow = false
+          }
+      }
   }
 }
 

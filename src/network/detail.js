@@ -32,7 +32,7 @@ export class Goodsparam {
     constructor(info, rule) {
         this.image = info.image ? images[0] : '';
         this.infos = info.set;
-        this.sizes = rule.tables;
+        this.sizes = rule ? rule.tables : [];
     }
 }
 

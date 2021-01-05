@@ -23,12 +23,12 @@ name:"vtab",
       },
       sticky:{
         type:Boolean,
-        type:true
+        default:true
       },
       currenttype:{
         type:String,
         default:'pop'
-      }
+      },
   },
   watch:{
     activeName(val){

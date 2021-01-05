@@ -10,6 +10,8 @@ const profile = () =>
     import ('../views/profile/profile')
 const detail = () =>
     import ('../views/detail/detail')
+const login = () =>
+    import ('../views/login/login')
 
 Vue.use(VueRouter)
 
@@ -48,6 +50,10 @@ const routes = [{
     {
         path: '/detail/:iid',
         component: detail
+    },
+    {
+        path: '/login',
+        component: login
     },
 ]
 

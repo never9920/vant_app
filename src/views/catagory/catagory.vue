@@ -5,14 +5,14 @@
     <div class="left">
     <vsidebar :catelist="catelist" @change="change"></vsidebar>
     </div>
-    <div class="right" ref="right">
-    <vgrid :recommend="showsubcata" :num ="num1" class="aaa"></vgrid>
-    <vtab :tabdata="tabdata" @typechange="typechange" :sticky="sticky" :currenttype="currenttype">
+    <div class="right" id="right" ref="right">
+    <vgrid :recommend="showsubcata" :num ="num1"></vgrid>
+    <vtab :tabdata="tabdata" @typechange="typechange" :currenttype="currenttype" :sticky="sticky">
       <vgrid :recommend="showrecommends" :num="num2"></vgrid>
     </vtab>
     </div>
     </div>
-    <backtop @click.native="totop"></backtop>
+    <backtop @click.native="totop" v-if="isshow"></backtop>
   </div>
 </template>
 
@@ -42,7 +42,8 @@ name:"catagory",
         {title:"新款",name:"new"},
         {title:"精选",name:"sell"},
       ],
-      sticky:false
+      sticky:false,
+      isshow:false
     };
   },
 
@@ -56,6 +57,10 @@ name:"catagory",
 
   created(){
     this.getcata()
+  },
+
+  mounted(){
+      document.getElementById("right").addEventListener('scroll',this.backshow)
   },
 
   computed: {
@@ -120,6 +125,15 @@ name:"catagory",
       this.getsub(index)
       this.currenttype= 'pop'
       this.$refs.right.scrollTo({top:0,behavior:'smooth'})
+    },
+    backshow(){
+      var scrollTop = document.getElementById("right").scrollTop
+      //console.log(scrollTop)
+      if(scrollTop >1500){
+        this.isshow = true
+      }else{
+        this.isshow = false
+      }
     }
   }
 }

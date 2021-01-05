@@ -27,7 +27,11 @@ import {
     SubmitBar,
     checkbox,
     Sidebar,
-    SidebarItem
+    SidebarItem,
+    Cell,
+    CellGroup,
+    CouponCell,
+    CouponList
 } from 'vant'
 
 Vue.use(Button);
@@ -56,6 +60,10 @@ Vue.use(SubmitBar);
 Vue.use(checkbox);
 Vue.use(Sidebar);
 Vue.use(SidebarItem);
+Vue.use(Cell);
+Vue.use(CellGroup);
+Vue.use(CouponCell);
+Vue.use(CouponList);
 
 
 Vue.prototype.$toast = Toast

@@ -1,16 +1,16 @@
 <template>
   <div>
-    <detailnavbar @titleclick="titleclick"></detailnavbar>
+    <detailnavbar @titleclick="titleclick" :active="active"></detailnavbar>
     <vswipe :banner="topimg" :hight=hight></vswipe>
     <detailbaseinfo :goods="goods"></detailbaseinfo>
     <detailshop :shop="shop"></detailshop>
     <detailgoods :detailinfo="detailinfo" @imageload="imageload"></detailgoods>
     <detailparam :paraminfo="paraminfo" ref="param"></detailparam>
     <detailcomment :commentinfo="commentinfo" ref="comment"></detailcomment>
-    <div class="word">热门推荐</div>
+    <div class="word" ref="recommend">热门推荐</div>
     <vgrid :recommend="recommendlist" :num="num"></vgrid>
     <vgoods :paraminfo="paraminfo" :iid="iid" :topimg="topimg" :goodsinfo="goods"></vgoods>
-    <backtop @click.native="totop"></backtop>
+    <backtop @click.native="totop" v-if="isshow"></backtop>
   </div>
 </template>
 
@@ -41,6 +41,9 @@ name:"detail",
       hight:'300px',
       recommendlist:[],
       num:2,
+      isshow:false,
+      themetopy:[],
+      active:0
     };
   },
 
@@ -59,6 +62,10 @@ name:"detail",
 
   computed: {},
 
+  mounted(){
+      window.addEventListener('scroll',this.backshow)
+  },
+
   created(){
     this.iid = this.$route.params.iid
     //console.log(this.iid)
@@ -69,6 +76,8 @@ name:"detail",
   methods: {
     titleclick(index){
       //console.log(index)
+      const top = this.themetopy[index]
+      scrollTo({top:top,behavior:'smooth'})
     },
     async detaildata(iid){
       const res = await getdetail(iid)
@@ -95,13 +104,39 @@ name:"detail",
       this.recommendlist = res.list
     },
     imageload(){
-
+      this.themetopy = [];
+      this.themetopy.push(0);
+      this.themetopy.push(this.$refs.param.$el.offsetTop- 44);
+      this.themetopy.push(this.$refs.comment.$el.offsetTop);
+      this.themetopy.push(this.$refs.recommend.offsetTop- 44);
+      this.themetopy.push(Number.MAX_VALUE)
+      //console.log(this.themetopy)
     },
     totop(){
       //console.log(scrollTop)
       scrollTo({top:0,behavior:'smooth'})
       //console.log('kkk')
     },
+    backshow(){
+      var scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+      if(scrollTop >1500){
+        this.isshow = true
+      }else{
+        this.isshow = false
+      }
+      let length = this.themetopy.length
+      for(let i = 0;i<length-1;i++){
+        /*if(this.currentindex!==i&&((i <this.themetopy.length-1 && -position.y >= this.themetopy[i] && -position.y < this.themetopy[i+1])||(i=== this.themetopy.length-1 &&-position.y>=this.themetopy[i]))){
+           this.currentindex = i;
+           //console.log(this.currentindex)
+           this.$refs.nav.currentindex = this.currentindex
+        }*/
+        if(this.active!==i &&(scrollTop>=this.themetopy[i]&&scrollTop<this.themetopy[i+1])){
+          this.active = i;
+          //console.log(this.currentindex)
+        }
+      }
+    }
   }
 }
 

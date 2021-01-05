@@ -28,6 +28,19 @@ name:"detailnavbar",
     };
   },
 
+  props:{
+    active:{
+      type:Number,
+      default:0
+    }
+  },
+
+  watch:{
+    active(){
+      this.currentindex = this.active
+    }
+  },
+
   components: {
       vnavbar
   },
