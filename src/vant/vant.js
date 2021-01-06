@@ -31,7 +31,10 @@ import {
     Cell,
     CellGroup,
     CouponCell,
-    CouponList
+    CouponList,
+    Form,
+    Field,
+    Divider
 } from 'vant'
 
 Vue.use(Button);
@@ -64,6 +67,9 @@ Vue.use(Cell);
 Vue.use(CellGroup);
 Vue.use(CouponCell);
 Vue.use(CouponList);
+Vue.use(Form);
+Vue.use(Field);
+Vue.use(Divider);
 
 
 Vue.prototype.$toast = Toast

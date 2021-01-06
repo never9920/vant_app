@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <van-tabs v-model="activeName" :sticky="sticky" :lazy-render=false offset-top="46px">
+  <div :class={btns:btns}>
+      <van-tabs v-model="activeName" :sticky="sticky" :lazy-render=false offset-top="46px" >
         <van-tab :title="item.title" :name="item.name" v-for="(item,i) in tabdata" :key="i">
             <slot>{{item.title}}</slot>
         </van-tab>
@@ -29,6 +29,10 @@ name:"vtab",
         type:String,
         default:'pop'
       },
+      btns:{
+        type:Boolean,
+        default:false
+      }
   },
   watch:{
     activeName(val){
@@ -48,5 +52,9 @@ name:"vtab",
 }
 
 </script>
-<style scoped>
+<style lang="less">
+.btns .van-sticky--fixed{
+  width:calc(100% - 80px);
+  left:80px
+}
 </style>

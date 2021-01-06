@@ -7,7 +7,7 @@
     </div>
     <div class="right" id="right" ref="right">
     <vgrid :recommend="showsubcata" :num ="num1"></vgrid>
-    <vtab :tabdata="tabdata" @typechange="typechange" :currenttype="currenttype" :sticky="sticky">
+    <vtab :tabdata="tabdata" @typechange="typechange" :currenttype="currenttype" :sticky="sticky" :btns="true" ref="tabs">
       <vgrid :recommend="showrecommends" :num="num2"></vgrid>
     </vtab>
     </div>
@@ -42,7 +42,7 @@ name:"catagory",
         {title:"新款",name:"new"},
         {title:"精选",name:"sell"},
       ],
-      sticky:false,
+      sticky:true,
       isshow:false
     };
   },
@@ -114,6 +114,8 @@ name:"catagory",
     typechange(vals){
       //console.log(this.goodslist)
       this.currenttype = vals
+      const a = this.$refs.tabs.$el.offsetTop
+      this.$refs.right.scrollTo({top:a,behavior:'smooth'})
     },
     totop(){
       //console.log(scrollTop)
