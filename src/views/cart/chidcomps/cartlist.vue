@@ -7,7 +7,7 @@
 
 <script>
 import {mapGetters} from 'vuex'
-import vcard from '../../../components/vant/vcard.vue';
+import vcard from 'components/vant/vcard.vue';
 import cartitem from './cartitem'
 
 export default {
@@ -24,7 +24,7 @@ name:"cartlist",
    computed: {
       ...mapGetters(['cartlist'])
   },
-
+  
   methods: {}
 }
 

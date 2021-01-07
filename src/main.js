@@ -5,7 +5,12 @@ import store from './store'
 import './vant/vant.js'
 import './assets/css/global.css'
 
+import 'lib-flexible/flexible.js'
+import FastClick from 'fastclick'
+
 Vue.config.productionTip = false
+
+FastClick.attach(document.body)
 
 new Vue({
     router,

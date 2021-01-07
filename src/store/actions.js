@@ -29,12 +29,16 @@ export default {
             let oldproduct = state.cartlist[index]
             oldproduct.count += 1
         }*/
+        //console.log(payload)
         return new Promise((resolve, reject) => {
             let product = context.state.cartlist.find(function(item) {
+                //console.log(item)
                 return item.iid === payload.iid
             })
             if (product) {
+                product.num = payload.num
                 context.commit(ADD_COUNTER, product)
+                    //console.log(payload)
                 resolve('当前商品数量+1')
             } else {
                 payload.count = payload.num

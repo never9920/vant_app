@@ -209,6 +209,7 @@ name:"vgoods",
         this.isshow=true
       },
       onBuyClicked(data){
+      //console.log(data)
       const product = {}
       product.image = this.topimg[0];
       product.title = this.goodsinfo.title;
@@ -216,6 +217,7 @@ name:"vgoods",
       product.price = this.goodsinfo.realPrice
       product.iid = this.iid;
       product.num = data.selectedNum;
+      //console.log(product)
       this.addcart(product).then(res=>{
         this.$router.push('/cart')
       })

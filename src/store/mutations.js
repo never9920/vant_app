@@ -10,10 +10,12 @@ export default {
     //mutations每个方法尽可能做的事情要单一
     [ADD_COUNTER](state, payload) {
         payload.count = payload.count + payload.num
+            //payload.num = ''
     },
     [ADD_CART](state, payload) {
         payload.checked = true
         state.cartlist.push(payload)
+            //console.log(typeof(payload.count))
     },
     [DEL_CART](state, payload) {
         state.cartlist.map((item, index) => {
