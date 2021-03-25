@@ -28,6 +28,9 @@
 
 ![Image text](https://github.com/never9920/vant_app/blob/main/src/assets/8.jpg)
 
+### 购物车
+
+![Image text](https://github.com/never9920/vant_app/blob/main/src/assets/9.jpg)
 ### 我的
 
 ![Image text](https://github.com/never9920/vant_app/blob/main/src/assets/10.jpg)
