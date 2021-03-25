@@ -47,14 +47,13 @@ name:"vform",
 </script>
 <style scoped>
 .form{
-    margin-top: 30px;
     position: relative;
-    width: 80%;
-    left: 37.5px;
+    width: 100%;
 }
 .field{
     font-size: 18px;
     border-radius: 10px;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0);
+    margin: 10px 0;
 }
 </style>

@@ -1,9 +1,9 @@
 <template>
   <div id="bgc">
     <vnavbar :navdata="navdata"></vnavbar>
-    <div class="picture">
-    <img src="~assets/img/profile/profile.jpg"  @click="login"/>
-    <div  @click="login">登录/注册</div>
+    <div class="picture"  @click="login">
+    <img src="~assets/img/profile/touxiang.jpg"/>
+    <div>登录/注册&nbsp;＞</div>
     </div>
     <vcell :cells="cells1" @concell="login"></vcell>
     <vprogrid class="grid"></vprogrid>
@@ -65,18 +65,21 @@ name:"profile",
   background-color: #f1f1f1;
 }
 .picture{
-  width: 100%;
   text-align: center;
   margin:0 0 10px 0;
   font-size:15px;
-  background-color: skyblue;
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding:  10px;
+  background: linear-gradient(90deg, white, pink);
 }
 .picture img{
-  width: 30%;
-  height: 112.5px;
+  height: 60px;
+  width:60px;
   border-radius: 50%;
-  margin:10px 0 0 0;
 }
 .grid{
   background-color: #fff;

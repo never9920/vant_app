@@ -101,6 +101,9 @@ name:"vfield",
 .field{
     font-size: 18px;
     border-radius: 10px;
-    background-color: rgba(0,0,0,0.1);
+    margin: 10px 0;
+    display: flex;
+    background-color: rgba(0,0,0,0);
+    align-items: center;
 }
 </style>

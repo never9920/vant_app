@@ -53,6 +53,6 @@ name:"vgridlogin",
     height: 40px;
 }
 .touming .van-grid-item__content{
-  background-color:rgba(0,0,0,0.1);
+  background-color:rgba(0,0,0,0);
 }
 </style>
